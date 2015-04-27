@@ -52,6 +52,21 @@ public class PersonRepositoryIntegrationTest extends IntegrationTest {
 		assertEquals("Kaminska", personRepository.findOne(1L).getLastName());
 	}
 
+	@Test
+	public void testFindByFirstNameLike() {
+		long count = personRepository.count();
+		personRepository.save(a(person().withId(count ++)
+				.withFirstName("Roberto").withLastName("Mancini")));
+		personRepository.save(a(person().withId(count ++)
+				.withFirstName("Roberto").withLastName("Mancini2")));
+		
+		List<Person> lista = personRepository.findByFirstNameLike("Roberto");
+		
+		assertEquals(2,lista.size());
+		assertEquals("Mancini",lista.get(0).getLastName());
+	}
+
+	
 	private Person a(PersonBuilder builder) {
 		return builder.build();
 	}
