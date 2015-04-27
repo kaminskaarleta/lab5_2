@@ -33,8 +33,8 @@ import edu.iis.mto.integrationtest.utils.ModeUtils;
 public class PersistenceConfig {
 
 	private static final String SQL_SCHEMA_SCRIPT_PATH = "sql/schema-script.sql";
-	private static final String SQL_FOLDER_NAME = "sql";
-	private static final String DATA_SCRIPT_FILENAME_SUFFIX = "data-script.sql";
+	private static final String SQL_FOLDER_NAME = "sql/";
+	private static final String DATA_SCRIPT_FILENAME_SUFFIX = "-data-script.sql";
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersistenceConfig.class);
 
